@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private float movementX;
     private bool isGrounded = true;
     private string ground_tag = "Ground";
+    private string enemy_tag = "Enemy";
 
     private void Awake()
     {
@@ -85,6 +86,10 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag(ground_tag))
         {
             isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag(enemy_tag))
+        {
+            Destroy(gameObject);
         }
     }
 
